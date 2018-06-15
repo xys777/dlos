@@ -1,0 +1,148 @@
+<div id="nav" class="navbar navbar-default hidden" role="navigation">
+	<div class="container-fluid menu">
+		<ul class="nav navbar-nav">
+			<li class="navbar-header">
+				<a class="navbar-brand" href="{dede:global.cfg_cmsurl/}/">首页</a>
+			</li>
+			<li class="dropdown">
+				{dede:autochannel partsort='1' typeid='51'}
+				<a class="dropdown-toggle" data-hover="dropdown" href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+				{/dede:autochannel}
+				<!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								Java 
+								<b class="caret"></b>
+							</a> -->
+				<ul class="dropdown-menu">
+					<li>
+						{dede:autochannel partsort='2' typeid='51'}
+						<a href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+						{/dede:autochannel}
+					</li>
+
+					<li>
+						{dede:autochannel partsort='3' typeid='51'}
+						<a href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+						{/dede:autochannel}
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+<div id="nav">
+
+	<div class="menu">
+		<ul>
+
+			<li>
+				<a class="item" href="{dede:global.cfg_cmsurl/}/">首页</a>
+			</li>
+
+			<li>
+				{dede:autochannel partsort='1' typeid='51'}
+				<a href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+				{/dede:autochannel}
+				<ul>
+					<li>
+						{dede:autochannel partsort='2' typeid='51'}
+						<a href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+						{/dede:autochannel}
+					</li>
+
+					<li>
+						{dede:autochannel partsort='3' typeid='51'}
+						<a href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+						{/dede:autochannel}
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				{dede:type typeid='58'}
+				<a href="[field:typelink /]">[field:typename /]</a>
+				{/dede:type}
+				<ul>
+					{dede:channel typeid='58' type='son'}
+					<li>
+						<a href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+					</li>
+					{/dede:channel}
+				</ul>
+			</li>
+
+			<li>
+				{dede:type typeid='64'}
+				<a href="[field:typelink /]">[field:typename /]</a>
+				{/dede:type}
+				<ul>
+					{dede:channel typeid='64' type='son'}
+					<li>
+						<a href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+					</li>
+					{/dede:channel}
+				</ul>
+			</li>
+
+			<li>
+				{dede:autochannel partsort='1' typeid='26'}
+				<a href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+				{/dede:autochannel}
+				<ul>
+					<li>
+						{dede:autochannel partsort='2' typeid='26'}
+						<a href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+						{/dede:autochannel}
+					</li>
+
+					<li>
+						{dede:autochannel partsort='3' typeid='26'}
+						<a href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+						{/dede:autochannel}
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				{dede:type typeid='30'}
+				<a href="[field:typelink /]">[field:typename /]</a>
+				{/dede:type}
+				<ul>
+					<li>
+						{dede:autochannel partsort='2' typeid='34'}
+						<a href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+						{/dede:autochannel}
+					</li>
+
+					<li>
+						{dede:autochannel partsort='3' typeid='34'}
+						<a href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+						{/dede:autochannel}
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				{dede:type typeid='35'}
+				<a href="[field:typelink /]">[field:typename /]</a>
+				{/dede:type}
+				<ul>
+					<li>
+						{dede:autochannel partsort='2' typeid='34'}
+						<a href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+						{/dede:autochannel}
+					</li>
+
+					<li>
+						{dede:autochannel partsort='3' typeid='34'}
+						<a href='[field:typelink/]' [field:rel/]>[field:typename/]</a>
+						{/dede:autochannel}
+					</li>
+				</ul>
+			</li>
+
+
+		</ul>
+	</div>
+</div>

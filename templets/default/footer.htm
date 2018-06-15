@@ -1,0 +1,49 @@
+<div class="foot">
+	<p>版权所有：大连社会服务发展评估中心  地址：中国·辽宁省大连市  邮编：116024</p>
+	<p>联系电话：+86 0411 8888 8888</p>
+</div>
+<a href="#0" class="cd-top">Top</a>
+
+
+<script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/js/gotop.js"></script>
+    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/include/dedeajax2.js"></script>
+    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/js/nav.js"></script>
+    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/bootstrap/js/bootstrap-hover-dropdown.js"></script>
+    <script type="text/javascript">
+        if (window.location.toString().indexOf('pref=padindex') != -1) {
+        } else {
+            if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+                if (window.location.href.indexOf("?mobile") < 0) {
+                    try {
+                        if (/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                            window.location.href = "{dede:global.cfg_mobileurl/}/index.php";
+                        }
+                        else if (/iPad/i.test(navigator.userAgent)) {
+                        } else {
+                        }
+                    } catch (e) { }
+                }
+            }
+        }
+    </script>
+    <script type="text/javascript">
+
+        $(function () {
+            $("a[_for]").mouseover(function () {
+                $(this).parents().children("a[_for]").removeClass("thisclass").parents().children("dd").hide();
+                $(this).addClass("thisclass").blur();
+                $("#" + $(this).attr("_for")).show();
+            });
+            $("a[_for=uc_member]").mouseover();
+            $("a[_for=flink_1]").mouseover();
+        });
+
+        function CheckLogin() {
+            var taget_obj = document.getElementById('_userlogin');
+            myajax = new DedeAjax(taget_obj, false, false, '', '', '');
+            myajax.SendGet2("{dede:global.cfg_cmspath/}/member/ajax_loginsta.php");
+            DedeXHTTP = null;
+        }
+    </script>

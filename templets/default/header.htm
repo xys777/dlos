@@ -1,0 +1,67 @@
+
+<SCRIPT language=javascript type=text/javascript>
+		function CheckLogin_head(){
+		  var taget_obj_head = document.getElementById('_userlogin_head');
+		  myajax_head = new DedeAjax(taget_obj_head,false,false,'','','');
+		  myajax_head.SendGet2("{dede:global.cfg_cmspath/}/member/ajax_loginsta_head.php");
+		  DedeXHTTP = null;
+		}
+
+//  $(document).ready(function() {
+// 		$('.ui .dropdown').dropdown({ on: 'hover' })
+// 	});
+	</SCRIPT>
+
+<!-- <div class="top">
+	<div class="warp">
+    	<span>
+				<div id="_userlogin_head" style="display:inline-block">
+						<a href="{dede:global.cfg_basehost/}/member/login.php">登录</a> | <a href="{dede:global.cfg_basehost/}/member/index_do.php?fmdo=user&dopost=regnew">注册</a>		
+				</div>|
+			<a href=""onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('{dede:global.cfg_basehost/}');">设为首页</a>|
+			<a href="javascript:window.external.AddFavorite('{dede:global.cfg_basehost/}','{dede:global.cfg_webname/}')">加入收藏</a>
+		</span>
+        <script language="JavaScript" type="text/JavaScript">
+			var n = new Date();
+			var y = n.getFullYear();
+			var m = ((m=n.getMonth()+1)<10?'0'+m:m);
+			var d = ((d=n.getDate())<10?'0'+d:d);
+			var h = ((h=n.getHours())<10?'0'+h:h);
+			var i = ((i=n.getMinutes())<10?'0'+i:i);
+			var w = new Array('日','一','二','三','四','五','六');
+			document.write(y+"年"+m+"月"+d+"日"+' '+h+':'+i+' '+'星期'+w[n.getDay()]);
+		</script>
+    </div>
+</div> -->
+<!-- <script language="javascript" type="text/javascript">CheckLogin_head();</script> -->
+<div class="fullwidth flexbox head">
+	<!-- <div class="fullwidth"> -->
+		<a href="{dede:global.cfg_basehost/}">
+			<div id="header"></div>
+			<!-- <img src="{dede:global.cfg_cmsurl/}/skin/images/logo_top0.jpg" alt="{dede:global.cfg_webname/}" /> -->
+		</a>
+	<!-- </div> -->
+	<!-- <div class="search">
+		<form action="{dede:field name='phpurl'/}/search.php" name="formsearch">
+			<input type="hidden" name="kwtype" value="0" />
+			<input name="keyword" type="text" class="search-keyword fl" id="search-keyword" value="请输入关键词" onfocus="if(this.value=='请输入关键词'){this.value='';}"
+			 onblur="if(this.value==''){this.value='请输入关键词';}" />
+			<button type="submit" class="search-submit fl">搜 索</button>
+		</form>
+	</div>
+	<div class="share">
+		<div class="bdsharebuttonbox">
+			<a href="#" class="bds_more" data-cmd="more"></a>
+			<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+			<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+			<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+			<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+			<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+		</div>
+		<script>
+			window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "32" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+		</script>
+	</div> -->
+</div>
+
+{dede:include filename="menu.htm"/}
