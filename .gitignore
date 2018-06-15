@@ -1,0 +1,13 @@
+a/
+data/
+install/
+manual/
+shouye/
+
+*.zip
+uploads/
+
+
+.gitconfig
+index.*
+req
