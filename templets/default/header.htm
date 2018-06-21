@@ -1,4 +1,9 @@
-
+<script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/js/gotop.js"></script>
+    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/include/dedeajax2.js"></script>
+    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/js/nav.js"></script>
+    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/bootstrap/js/bootstrap-hover-dropdown.js"></script>
 <SCRIPT language=javascript type=text/javascript>
 		function CheckLogin_head(){
 		  var taget_obj_head = document.getElementById('_userlogin_head');
@@ -6,7 +11,12 @@
 		  myajax_head.SendGet2("{dede:global.cfg_cmspath/}/member/ajax_loginsta_head.php");
 		  DedeXHTTP = null;
 		}
-
+		function CheckLogin() {
+            var taget_obj = document.getElementById('_userlogin');
+            myajax = new DedeAjax(taget_obj, false, false, '', '', '');
+            myajax.SendGet2("{dede:global.cfg_cmspath/}/member/ajax_loginsta.php");
+            DedeXHTTP = null;
+        }
 //  $(document).ready(function() {
 // 		$('.ui .dropdown').dropdown({ on: 'hover' })
 // 	});

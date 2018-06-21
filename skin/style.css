@@ -74,6 +74,9 @@ a:hover{
 	display:flex;
 	justify-content:space-around;
 }
+.flex0{
+	flex:none;
+}
 .flex1{
 	flex:1;
 }
@@ -323,7 +326,7 @@ xxxx{
 /*--/top end--*/
 
 .main2{
-	width:998px;
+	/* width:998px; */
 	margin:0 auto 10px auto;
 	overflow:hidden;
 	border:1px #e1e1e1 solid;
@@ -339,7 +342,7 @@ xxxx{
 	float:right;
 	width:250px;
 	overflow:hidden;
-	margin-bottom:10px;
+	margin-left:10px;
 }
 /*--/分栏 end--*/
 .t_1{
@@ -853,7 +856,7 @@ xxxx{
 }
 .b_box2 li{
 	color:#999;
-	padding:7px 0 8px 0;
+	padding:7px 0 8px 8px;
 	border-bottom:1px #e1e1e1 dotted;
 }
 .b_box2 li em{
@@ -1468,7 +1471,7 @@ xxxx{
 	padding-top:16px;
 }
 .index .latestlogin strong{
-	width:102px;
+	/* width:102px; */
 	padding-left:6px;
 	letter-spacing:1px;
 	color:#555;

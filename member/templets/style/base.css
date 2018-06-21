@@ -404,13 +404,12 @@ table.list tbody .row1 td {
 }
 #header #topPic {
 	height: 82px;
-	width: 960px;
+	width: 100%;
 	margin-bottom: -25px;
 	background: #FFF;
 }
 #topPic .topLogo {
-	margin-top: 10px;
-	margin-left: 10px;
+	width:100%;
 }
 #header #topNav {
 	position:relative;
@@ -596,7 +595,7 @@ table.list tbody .row1 td {
 	padding-top: 1px;
 }
 #mcpsub #menuBody .menuTitle {
-	background: #75B439;
+	background: rgb(36, 21, 165);
 	font-size: 12px;
 	font-weight: normal;
 	color: #FFF;
@@ -874,12 +873,10 @@ table.list tbody .row1 td {
 }
 /**********LayoutStyle.footer**********/
 #footer, #header #topPic, #header #topNav {
-	width:960px;
+	width:100%;
 	margin:0 auto;
 }
-#header #topNav {
-	margin-top:-25px;
-}
+
 /*相关按钮
 ----------------------------------------------------------*/
 .button,

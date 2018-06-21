@@ -20,8 +20,8 @@ Copyright (c) 2008, dedecms All rights reserved.
 	background-repeat: repeat-x;
 }
 #headTop .logo {
-	background:url(../images/module_top_logo.gif) no-repeat 20px 6px;
-	width:200px;
+	background:url(../images/module_top_logo.gif) no-repeat;
+	width: 400px;
 	height:30px;
 	float:left;
 	cursor:pointer;

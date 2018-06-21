@@ -4,13 +4,6 @@
 </div>
 <a href="#0" class="cd-top">Top</a>
 
-
-<script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/js/jquery.min.js"></script>
-    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/js/gotop.js"></script>
-    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/include/dedeajax2.js"></script>
-    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/js/nav.js"></script>
-    <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/bootstrap/js/bootstrap-hover-dropdown.js"></script>
     <script type="text/javascript">
         if (window.location.toString().indexOf('pref=padindex') != -1) {
         } else {
@@ -27,8 +20,6 @@
                 }
             }
         }
-    </script>
-    <script type="text/javascript">
 
         $(function () {
             $("a[_for]").mouseover(function () {
@@ -39,11 +30,4 @@
             $("a[_for=uc_member]").mouseover();
             $("a[_for=flink_1]").mouseover();
         });
-
-        function CheckLogin() {
-            var taget_obj = document.getElementById('_userlogin');
-            myajax = new DedeAjax(taget_obj, false, false, '', '', '');
-            myajax.SendGet2("{dede:global.cfg_cmspath/}/member/ajax_loginsta.php");
-            DedeXHTTP = null;
-        }
     </script>
