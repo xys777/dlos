@@ -118,12 +118,12 @@ body #header{
 	height:65px;
 	background-size:100% 100%;
 	-moz-background-size:100% 100%;
-	background-image:url(/skin/images/logo_top1.jpg);
+	background-image:url(/skin/images/logo_top1.png);
 	}
 
 body.index #header{
 	height:140px;
-	background-image:url(/skin/images/logo_top0.jpg);
+	background-image:url(/skin/images/logo_top0.png);
 }
 #nav {
     width: 100%;

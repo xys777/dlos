@@ -4,13 +4,13 @@
  **/
 
 .pleft{
-	width:712px;
+	width:1012px;
 	float:left;
 	overflow:hidden;
 }
 .pleft .place{
-	width:712px;
-	height:24px;
+	width:1012px;
+	height:30px;
 	line-height:24px;
 	background:transparent url(../images/green_skin.png) repeat-x scroll 0 -188px;
 	border-top:1px solid #BADAA1;
@@ -70,7 +70,7 @@
 	TEXT-DECORATION: underline;
 }
 .pright{
-	width:240px;
+	width:260px;
 	float:right;
 	overflow:hidden;
 }
@@ -444,7 +444,7 @@
 
 /*---------- viewbox ---------*/
 .viewbox{
-	width:712px;
+	width:1012px;
 	overflow:hidden;
 	padding-bottom:8px;
 }
@@ -798,11 +798,11 @@
 	display:block;
 }
 .speciallist{
-	width:720px;
+	width:1020px;
 	overflow:hidden;
 }
 .speciallist dl.tbox{
-	width:352px;
+	width:502px;
 	margin-right:8px;
 	margin-top:8px;
 	float:left;
@@ -1268,7 +1268,7 @@
 }
 .dcmp-content textarea{
 	height:100px;
-	width:450px;
+	width:700px;
 	float:left;
 }
 .dcmp-content1{

@@ -112,14 +112,16 @@ function checkSubmit()
           <tr> 
             <td align="right" class='bline'>等级：</td>
             <td class='bline' style="text-align:left;"><?php
-             $MemberTypes = '';
+             $MemberTypes = [];
              $dsql->SetQuery("Select rank,membername From `#@__arcrank` where rank>0");
              $dsql->Execute('n');
              $MemberTypes[0] = "限制会员";
+             
              while($nrow = $dsql->GetObject('n')){
 	              $MemberTypes[$nrow->rank] = $nrow->membername;
              }
              $options = "<select name='rank' style='width:80px'>\r\n";
+                
              foreach($MemberTypes as $k=>$v)
              {
   	            if($k!=$row['rank']) $options .= "<option value='$k'>$v</option>\r\n";

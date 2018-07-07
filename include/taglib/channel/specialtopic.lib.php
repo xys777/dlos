@@ -23,6 +23,7 @@ function ch_specialtopic($noteinfo, $arcTag, $refObj, $fname='')
         foreach($dtp->CTags as $k=>$ctag)
         {
             $notename = $ctag->GetAtt('name');
+            $notestr = str_replace('~notename~', $notename, $tempStr);
             //指定名称的专题节点
             if($noteid != '' && $ctag->GetAtt('noteid') != $noteid)
             {
@@ -41,6 +42,12 @@ function ch_specialtopic($noteinfo, $arcTag, $refObj, $fname='')
                 $idlist = '';
                 $keywords = trim($ctag->GetAtt('keywords'));
                 $stypeid = $ctag->GetAtt('typeid');
+            }else{
+                if($idlist=='') {
+                    $notestr = str_replace('~spec_arclist~', '暂无内容', $notestr);
+                    $rvalue .= $notestr;
+                    continue;
+                }
             }
 
             $listTemplet = trim($ctag->GetInnerText())!='' ? $ctag->GetInnerText() : GetSysTemplets('spec_arclist.htm');
@@ -51,7 +58,7 @@ function ch_specialtopic($noteinfo, $arcTag, $refObj, $fname='')
                         $ctag->GetAtt('imgwidth'), $ctag->GetAtt('imgheight'), 'all', 'default', $keywords, $listTemplet, 0, $idlist,
                         $ctag->GetAtt('channel'), '', $ctag->GetAtt('att')
                       );
-            $notestr = str_replace('~notename~', $notename, $tempStr);
+            
             $notestr = str_replace('~spec_arclist~', $idvalue, $notestr);
             $rvalue .= $notestr;
             if($noteid != '' && $ctag->GetAtt('noteid')==$noteid) break;

@@ -54,6 +54,7 @@
 </attributes> 
 >>dede>>*/
 
+require_once(DEDEINC."/channelunit.class.php");
 function lib_arclist( &$ctag, &$refObj )
 {
     global $envs;
@@ -169,6 +170,8 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
         $imgwidth=120, $imgheight=90, $listtype='all', $orderby='default', $keyword='',
         $innertext='', $arcid=0, $idlist='', $channelid=0, $limit='', $att='', $order='desc', $subday=0, $noflag='',$tagid='', $pagesize=0, $isweight='N')
 {
+
+    
     global $dsql,$PubFields,$cfg_keyword_like,$cfg_index_cache,$_arclistEnv,$envs,$cfg_cache_type,$cfg_digg_update;
     $row = AttDef($row,10);
     $titlelen = AttDef($titlelen,30);
@@ -487,6 +490,62 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
                 $row['info'] = $row['infos'] = cn_substr($row['description'],$infolen);
                 $row['id'] =  $row['id'];
 
+                $aid =  $row['id'];
+                $ChannelUnit = new ChannelUnit($row['channel'], $aid);
+                $dtp = new DedeTagParse();
+                
+                global $dsql;
+                // var_dump($ChannelUnit->ChannelFields);
+                if($ChannelUnit->ChannelInfos['addtable']!='')
+                {
+                    $query = "SELECT * FROM `{$ChannelUnit->ChannelInfos['addtable']}` WHERE `aid` = '$aid'";
+                    $addTableRow = $dsql->GetOne($query);
+                    // $row['note'] = $addTableRow['note'];
+                    $notes = array();
+                    
+                    $dtp->LoadSource($addTableRow['note']);
+
+      if(is_array($dtp->CTags)){
+      foreach($dtp->CTags as $tagid=>$ctag)
+        {
+            if($ctag->GetName()!="specnote") continue;
+            $notename = $ctag->GetAtt('name');
+            $row['note'] .= '<li class="list-group-item" style="margin-bottom: 5px;">'.
+            '<span class="glyphicon glyphicon-play"></span>'.
+            '<span class="badge"><span class="glyphicon glyphicon-ok"></span></span>'.$notename.'</li>';
+
+            // $arrlength=count( $notes);
+            // $notes[$arrlength] =  $notename;
+            // echo $notes[$arrlength];
+        }  
+    }
+                    
+                //     foreach($dtp->CTags as $ctag)
+                // {
+                //     if($ctag->GetTagName()=='field' && $ctag->GetAtt('name')=='note')
+                //                         {
+                //                             var_dump($ctag); 
+                //                             //带标识的专题节点
+                //                             if($ctag->GetAtt('noteid') != '') {
+                //                                 $row[$k.'_'.$ctag->GetAtt('noteid')] = $this->ChannelUnit->MakeField($k, $row[$k], $ctag);
+                //                             }
+                //                             //带类型的字段节点
+                //                             else if($ctag->GetAtt('type') != '') {
+                //                                 $row[$k.'_'.$ctag->GetAtt('type')] = $this->ChannelUnit->MakeField($k, $row[$k], $ctag);
+                //                             }
+                //                             //其它字段
+                //                             else {
+                //                                 $row[$nk] = $this->ChannelUnit->MakeField($k, $row[$k], $ctag);
+                //                             }
+                //                         }
+                // }
+
+                //      foreach($addTableRow as $x=>$x_value) {
+                //         echo "Key=" . $x . ", Value=" . $x_value;
+                //         echo "<br>";
+                //       }
+                }
+
                 if($row['corank'] > 0 && $row['arcrank']==0)
                 {
                     $row['arcrank'] = $row['corank'];
@@ -513,6 +572,7 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
                 $row['imglink'] = "<a href='".$row['filename']."'>".$row['image']."</a>";
                 $row['fulltitle'] = $row['title'];
                 $row['title'] = cn_substr($row['title'], $titlelen);
+                
                 if($row['color']!='') $row['title'] = "<font color='".$row['color']."'>".$row['title']."</font>";
                 if(preg_match('#b#', $row['flag'])) $row['title'] = "<strong>".$row['title']."</strong>";
                 //$row['title'] = "<b>".$row['title']."</b>";

@@ -26,17 +26,17 @@
                 </div>
                 <div class="panel-body">
                     <ul class="list2">
-                        {dede:list pagesize='9'}
+                        {dede:list pagesize='10'}
                         <li class="flexbox" style="margin-bottom: 5px;">
                             <a href="[field:arcurl/]">
                                 <img style="width:150px;" src="[field:picname/]" alt="[field:fulltitle/]" />
                             </a>
-                            <div class="flex1">
-                                <h3>
+                            <div class="flex1" style="margin-left: 10px;">
+                                <h3 style="font-size: 18px; font-weight: bold;">
                                     <a href="[field:arcurl/]">[field:fulltitle/]</a>
                                 </h3>
-                                <span>[field:pubdate function='strftime("%Y-%m-%d %H:%M:%S","@me")'/]</span>
-                                <p>[field:description function="cn_substr(@me,300)"/]...</p>
+                                <span>编辑：[field:writer/]</span>&nbsp;&nbsp;<span>发布时间：[field:pubdate function='strftime("%Y-%m-%d %H:%M:%S","@me")'/]</span>
+                                <p>[field:description function="cn_substr(@me,500)"/]...</p>
                                 
                             </div>
                         </li>
