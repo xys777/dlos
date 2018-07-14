@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+{dede:include filename="head.htm"/}
+
+<body class="index">
+        {dede:include filename="header.htm"/}
+    <div id="index-main1" class="mainrow flexbox fullwidth">
+        
+        <div class="panel panel-primary" style="width:300px;flex-shrink: 0;">
+
+            {dede:arclist flag='h' channelid='-1' orderby='pubdate' orderway='desc' limit='0,1' titlelen=42 row=1} 
+            <div class="panel-heading">
+                <h3 class="panel-title"><a href="[field:arcurl/]">[field:title/]</a></h3>
+            </div>
+            <div class="panel-body">
+                    <!-- <p>[field:description function='cn_substr(@me,80)'/]...</p> -->
+                    <ul class="list-group">
+                            [field:note/]
+                        </ul>
+            </div>
+            {/dede:arclist}
+        </div>
+
+
+        <div class='flex1' style="min-width:700px;height:400px;margin-left:10px;">
+
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+                <!-- 轮播（Carousel）指标 -->
+
+                <ol class="carousel-indicators">
+                    {dede:arclist limit='0,1' flag='f'}
+                    <li data-target="#myCarousel" data-slide-to="[field:id/]" class="active"></li>
+                    {/dede:arclist} {dede:arclist limit='1,4' flag='f'}
+                    <li data-target="#myCarousel" data-slide-to="[field:id/]"></li>
+                    {/dede:arclist}
+                </ol>
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                    {dede:arclist limit='0,1' titlelen=60 flag='f'}
+
+                    <div class="item active">
+                        <a href="[field:arcurl/]">
+                            <img style="width:100%; height:400px; display:block;" src="[field:picname function='str_replace("-lp","",@me)' /]" alt="[field:fulltitle/]" />
+                        </a>
+
+                    </div>
+                    {/dede:arclist} {dede:arclist limit='1,4' titlelen=60 flag='f'}
+
+                    <div class="item">
+                        <a href="[field:arcurl/]">
+                            <img style="width:100%; height:400px; display:block;" src="[field:picname function='str_replace("-lp","",@me)' /]" alt="[field:fulltitle/]" />
+                        </a>
+
+                    </div>
+                    {/dede:arclist}
+                </div>
+                <!-- 轮播（Carousel）导航 -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="index-tool" class="mainrow flex-sb fullwidth">
+        <div class="search">
+            <form action="{dede:field name='phpurl'/}/search.php" name="formsearch" role="form">
+                <input type="hidden" name="kwtype" value="0" />
+                <input name="keyword" type="text" class="form-control fl" id="search-keyword" value="请输入关键词" onfocus="if(this.value=='请输入关键词'){this.value='';}"
+                    onblur="if(this.value==''){this.value='请输入关键词';}" />
+                <button type="submit" class="search-submit fl">搜 索</button>
+            </form>
+        </div>
+        <div class="tool flexbox">
+            <ul>
+                    <li class="fx2"><a href="" target="_blank"><span style="font-size: 20px;margin-right: 5px;" class="glyphicon glyphicon-save-file"></span>附件下载</a> </li> 
+                    <li class="fx0"><a href="mailto:zzzz@qq.com" target="_blank">站长信箱</a> </li>
+                    <li class="fx1"><a href="index/gfwx.htm" target="_blank">官方微信</a> </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="index-main1" class="mainrow flexbox fullwidth">
+        <div class="flex1 main2">
+            <div class="t_2">
+                {dede:type typeid='51'}
+                <span>
+                    <a href="{dede:field name='typeurl'/}">更多>></a>
+                </span>
+                <h3>
+                    <a href="[field:typelink /]">[field:typename /]</a>
+                </h3>
+                {/dede:type}
+            </div>
+            <div class="fl" style="width:100%">
+                <ul class="nav nav-tabs open-nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#tabl-1-1" role="tab" data-toggle="tab" aria-expanded="true">
+                            <span>最新资讯</span>
+                        </a>
+                    </li>
+                    <li role="presentation" class="">
+                        <a href="#tabl-1-2" role="tab" data-toggle="tab" aria-expanded="false">
+                            <span>最热文章</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content open-tab-content">
+
+                    <div role="tabpanel" class="tab-pane active" id="tabl-1-1">
+                        <ul class="b_box2">
+                            {dede:arclist typeid='51' limit='0,2' titlelen=70 orderby='pubdate'}
+                            <li>
+                                <a href="[field:arcurl/]">[field:title/]</a>
+                                [field:description function="cn_substr(@me,150)"/]...
+                            </li>
+                            {/dede:arclist}
+                        </ul>
+                        <ul class="b_box3">
+                            {dede:arclist limit='2,4' titlelen=65 orderby='pubdate'}
+                            <li>
+                                【[field:typename/]】
+                                <a href="[field:arcurl/]">[field:title/]</a>
+                                [field:senddate runphp='yes'] $ntime = time(); $oneday = 3600 * 24; if(($ntime - @me)
+                                <$oneday)
+                                    @me="<font color='red'>(new)</font>" ; else @me="" ; [/field:senddate] </li>
+                                    {/dede:arclist}
+                        </ul>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tabl-1-2">
+                        <ul class="b_box3">
+                            {dede:arclist row=6 typeid='51' titlelen=65 orderby='click'}
+                            <li>
+                                【[field:typename/]】
+                                <a href="[field:arcurl/]">[field:title/]</a><font color='red'>([field:click/])</font>
+                            </li>
+                            {/dede:arclist}
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="flex1 main2" style="margin-left: 10px;">
+            <div class="t_2">
+                {dede:type typeid='31'}
+                <span>
+                    <a href="{dede:field name='typeurl'/}">更多>></a>
+                </span>
+                <h3>
+                    <a href="[field:typelink /]">[field:typename /]</a>
+                </h3>
+                {/dede:type}
+            </div>
+            <ul class="b_box3">
+                {dede:arclist typeid='31' row=6 titlelen=50 orderby='pubdate'}
+                <li>
+                    <a href="[field:arcurl/]">[field:title/]</a>
+                    <span style="float:right">([field:pubdate function="MyDate('Y-m-d',@me)"/])</span>
+                </li>
+                {/dede:arclist}
+            </ul>
+        </div>
+        <div class="flex0 right_1 fr">
+            <div class="usercenter">
+                <dl class="light g_box2">
+                    <dt class='light t_1'>
+                        <strong>互动中心</strong>
+                        <span class="label">
+                            <a href="#" _for="uc_digg">踩踩</a>
+                            <a href="#" _for="uc_comment">评论</a>
+                            <a href="#" _for="uc_member">会员</a>
+                        </span>
+                    </dt>
+                    <dd id="loading"> 正在载入,请稍候... </dd>
+                    <dd id="uc_digg">
+                        <ul class="f1">
+                            {dede:arclist orderby='scores' row='8' subday='30' titlelen='42'}
+                            <li>
+                                <a href="[field:arcurl/]">[field:title/]</a>
+                                <span>
+                                    <small>点击:</small>[field:click/]</span>
+                                <span>
+                                    <small>评价:</small>[field:scores/]</span>
+                            </li>
+                            {/dede:arclist}
+                        </ul>
+                    </dd>
+                    <!-- /uc_digg -->
+                    <dd id="uc_comment">
+                        <ul class="f2">
+                            {dede:feedback row='5' titlelen='24' infolen='80'}
+                            <li>
+                                <small>
+                                    <a href="#" class="username">[field:username function="(@me=='guest' ? '游客' : @me)"/]</a> 评论
+                                    <a href="[field:global.cfg_phpurl/]/feedback.php?aid=[field:aid/]" class="title">[field:title/]</a>
+                                </small>
+                                <p>[field:msg/]</p>
+                            </li>
+                            {/dede:feedback}
+                        </ul>
+                    </dd>
+                    <!-- /uc_comment -->
+                    <dd id="uc_member">
+                        <div id="_userlogin">
+                            <div class="userlogin">
+                                <form name="userlogin" action="{dede:global.cfg_memberurl/}/index_do.php" method="POST">
+                                    <input type="hidden" name="fmdo" value="login" />
+                                    <input type="hidden" name="dopost" value="login" />
+                                    <input type="hidden" name="keeptime" value="604800" />
+                                    <div class="fb">
+                                        <span>用户名:</span>
+                                        <input type="text" name="userid" size="20" class="ipt-txt" />
+                                    </div>
+                                    <div class="fb">
+                                        <span>密码:</span>
+                                        <input type="password" name="pwd" size="20" class="ipt-txt" />
+                                    </div>
+                                    {dede:php} if(preg_match("#2#", $safe_gdopen)) { echo '
+                                    <div class="fb">
+                                        <span>验证码:</span>
+                                        <input type="text" name="vdcode" size="8" class="ipt-txt" />
+                                        <img id="vdimgck" align="absmiddle" onClick="this.src=this.src+\'?\'" style="cursor:pointer;margin-left:0px;text-transform:uppercase;"
+                                            alt="看不清？点击更换" src="'.$cfg_cmspath.'/include/vdimgck.php" />
+                                    </div>
+                                    '; } {/dede:php}
+                                    <div class="submit">
+                                        <button type="submit" class="btn-1">登录</button>
+                                        <a href="{dede:global.cfg_memberurl/}/index_do.php?fmdo=user&dopost=regnew">注册帐号</a>
+                                        <a href="{dede:global.cfg_memberurl/}/resetpassword.php">忘记密码?</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /userlogin -->
+                        <script language="javascript" type="text/javascript">CheckLogin();</script>
+                        <div class="latestlogin">
+                            <strong>最近登陆的会员</strong>
+                            <ul class="e7">
+                                {dede:memberlist row=6 signlen=30}
+                                <li>
+                                    <a href="[field:spaceurl/]" target="_blank">
+                                        <img src="[field:face/]" alt='[field:spacename/]' width="52" height="52" />[field:uname/]</a>
+                                </li>
+                                {/dede:memberlist}
+                            </ul>
+                        </div>
+                        <!-- /latestlogin -->
+                    </dd>
+                    <!-- /uc_member -->
+                </dl>
+            </div>
+            <!-- /usercenter -->
+        </div>
+    </div>
+
+    <div class="link">
+        <div style="float: left">友情链接：&nbsp;</div>
+        <p style="float: left">
+            {dede:flink row='100' type='text' typeid="0"} [field:link /] {/dede:flink}
+        </p>
+        <div style="clear:both"></div>
+    </div>
+
+    {dede:include filename="footer.htm"/}
+
+</html>

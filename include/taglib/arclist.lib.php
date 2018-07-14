@@ -490,6 +490,8 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
                 $row['info'] = $row['infos'] = cn_substr($row['description'],$infolen);
                 $row['id'] =  $row['id'];
 
+                // evans
+                // spec note 
                 $aid =  $row['id'];
                 $ChannelUnit = new ChannelUnit($row['channel'], $aid);
                 $dtp = new DedeTagParse();
@@ -501,6 +503,8 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
                     $query = "SELECT * FROM `{$ChannelUnit->ChannelInfos['addtable']}` WHERE `aid` = '$aid'";
                     $addTableRow = $dsql->GetOne($query);
                     // $row['note'] = $addTableRow['note'];
+
+                    //  var_dump($addTableRow['note']);
                     $notes = array();
                     
                     $dtp->LoadSource($addTableRow['note']);
@@ -510,9 +514,32 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
         {
             if($ctag->GetName()!="specnote") continue;
             $notename = $ctag->GetAtt('name');
-            $row['note'] .= '<li class="list-group-item" style="margin-bottom: 5px;">'.
-            '<span class="glyphicon glyphicon-play"></span>'.
-            '<span class="badge"><span class="glyphicon glyphicon-ok"></span></span>'.$notename.'</li>';
+            $idlist = $ctag->GetAtt('idlist');
+
+            $idvalue = '暂无内容';
+// echo $idlist;
+            if($idlist!=''){
+                $stypeid = 0;
+                $rownum = trim($ctag->GetAtt('rownum'));
+                if(empty($rownum)) $rownum = 40;
+                $keywords = '';
+                //echo $ctag->GetInnerText();
+                $listTemplet = trim($ctag->GetInnerText())!='' ? $ctag->GetInnerText() : GetSysTemplets('spec_arclist.htm');
+                $idvalue = lib_arclistDone
+                (
+                    $ChannelUnit, $ctag, $stypeid, $rownum, $ctag->GetAtt('col'), $ctag->GetAtt('titlelen'),$ctag->GetAtt('infolen'),
+                  $ctag->GetAtt('imgwidth'), $ctag->GetAtt('imgheight'), 'all', 'default', $keywords, $listTemplet, 0, $idlist,
+                  $ctag->GetAtt('channel'), '', $ctag->GetAtt('att')
+                );
+                // echo $idvalue;
+            }
+            
+            $row['note'] .= '<li class="list-group-item flexbox" style="margin-bottom: 5px;">'.
+            '<div style="width:45px;flex-shrink: 0;"><span style="color:red;font-weight:bold;">'.$notename.'</span>'.
+            '<span class="glyphicon glyphicon-play"></span></div>'.
+            '<ul>'.$idvalue.'</ul>'.
+            // '<span class="badge"><span class="glyphicon glyphicon-ok"></span></span>'.
+            '</li>';
 
             // $arrlength=count( $notes);
             // $notes[$arrlength] =  $notename;
