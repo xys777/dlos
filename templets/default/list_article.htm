@@ -25,19 +25,21 @@
                     <h3 class="panel-title" style="font-weight: bold;">{dede:field.typename /}</h3>
                 </div>
                 <div class="panel-body">
-                    <ul class="list2" style="padding: 5px;">
-                        {dede:list pagesize='10'}
-                        <li class="flexbox" style="margin-bottom: 15px;">
+                    <ul class="list2" style="padding: 10px;">
+                        {dede:list pagesize='8'}
+                        <li class="flexbox" style="margin-bottom: 30px;">
                             <a href="[field:arcurl/]">
                                 <img style="width:150px;" src="[field:picname/]" alt="[field:fulltitle/]" />
                             </a>
-                            <div class="flex1" style="margin-left: 10px;">
-                                <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 5px;" >
+                            <div class="flex1" style="margin-left: 30px;">
+                                <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 15px;" >
                                     <a href="[field:arcurl/]">[field:fulltitle/]</a>
                                 </h3>
-                                <span style="font-size: 12px;">编辑：[field:writer/]&nbsp;&nbsp;发布时间：[field:pubdate function='strftime("%Y-%m-%d %H:%M:%S","@me")'/]</span>
-                                <p style="font-size: 13px; margin-top: 5px;">[field:description function="cn_substr(@me,500)"/]...</p>
                                 
+                                <p style="font-size: 14px; margin-bottom: 10px; text-indent: 2em; line-height: 30px;">[field:description function="cn_substr(@me,500)"/]...</p>
+
+                                <span style="font-size: 14px;">编辑：[field:writer/]&nbsp;&nbsp;发布时间：[field:pubdate function='strftime("%Y-%m-%d %H:%M:%S","@me")'/]</span>
+
                             </div>
                         </li>
                         {/dede:list}
@@ -59,7 +61,7 @@
                 <div class="panel-body">
                     <ul class="list-group">
                         {dede:channel type='son'}
-                        <li class="list-group-item" style="margin-bottom: 5px;">
+                        <li class="list-group-item" style="margin-bottom: 10px;">
                             <span class="glyphicon glyphicon-play"></span>
                             <a href='[field:typeurl/]'>[field:typename/]</a>
                         </li>
@@ -78,8 +80,8 @@
                 </div>
                 <div class="panel-body">
                     <ul class="list-group">
-                        {dede:arclist row=5 titlelen=50}
-                        <li class="list-group-item">
+                        {dede:arclist row=5 titlelen=63}
+                        <li class="list-group-item" style="margin-bottom: 10px; font-size: 12px;">
                             <a href="[field:arcurl/]">[field:title/]</a>
                         </li>
                         {/dede:arclist}
@@ -96,8 +98,8 @@
                 </div>
                 <div class="panel-body">
                     <ul class="list-group">
-                        {dede:arclist row=8 titlelen=50 orderby='click'}
-                        <li class="list-group-item">
+                        {dede:arclist row=8 titlelen=63 orderby='click'}
+                        <li class="list-group-item" style="margin-bottom: 10px; font-size: 12px;">
                             <a href="[field:arcurl/]">[field:title/]</a>
                         </li>
                         {/dede:arclist}

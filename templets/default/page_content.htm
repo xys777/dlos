@@ -12,11 +12,27 @@
 <script type="text/javascript" src="{dede:global.cfg_cmsurl/}/skin/js/gotop.js"></script>
 </head>
 <body>
-{dede:include filename="head.htm"/}
-<div class="weizhi">您的当前位置：{dede:field name='position'/}</div>
-<div class="main1">
-	<div class="left_1">
-    	<div class="g_list">
+{dede:include filename="header.htm"/}
+<div class="weizhi fullwidth">您的当前位置：{dede:field name='position'/}</div>
+<div class="mainrow flexbox fullwidth">
+	<div class="flex1 content-left">
+
+
+            <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="font-weight: bold;">{dede:field.typename /}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p class="about">
+                                {dede:field.content /}
+                        </p>
+                            
+                    </div>
+    
+                </div>
+
+
+    	<!-- <div class="g_list">
             <div class="t_4"><h3>{dede:field.typename /}</h3></div>
             
             {dede:field.content /}
@@ -26,21 +42,29 @@
                     {dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="4"/}
                 </ul>
             </div>
-        </div>
+        </div> -->
+
+
+
     </div>
-    <div class="right_1">
-    	<div class="g_box2 u_2">
-        	<div class="t_1">栏目分类</div>
-            <ul class="menu">
-                {dede:channel type='son' currentstyle="
-                  <li><a href='~typelink~' class='on'>~typename~</a></li>
-                  "}
-                  <li><a href='[field:typeurl/]'>[field:typename/]</a></li>
-                  {/dede:channel}
-                <div class="clear"></div>
-            </ul>
+    <div class="quarterwidth content-right">
+    	<div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">栏目分类</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    {dede:channel type='son'}
+                    <li class="list-group-item" style="margin-bottom: 10px;">
+                        <span class="glyphicon glyphicon-play"></span>
+                        <a href='[field:typeurl/]'>[field:typename/]</a>
+                    </li>
+                    {/dede:channel}
+
+                </ul>
+            </div>
         </div>
-    	<div class="ban_251"><img src="{dede:global.cfg_cmsurl/}/skin/images/ad2.jpg" width="250" height="250" /></div>
+    	<!-- <div class="ban_251"><img src="{dede:global.cfg_cmsurl/}/skin/images/ad2.jpg" width="250" height="250" /></div>
         <div class="g_box2 u_2">
         	<div class="t_1">最新文章</div>
             <ul class="b_box3 u_1">
@@ -57,9 +81,9 @@
                 <li><a href="[field:arcurl/]">[field:title/]</a></li>
                 {/dede:arclist}
             </ul>
-        </div>
+        </div> -->
     </div>
-    <div class="clear"></div>
+    <!-- <div class="clear"></div> -->
 </div>
 {dede:include filename="footer.htm"/}
 </body>
